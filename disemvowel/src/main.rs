@@ -6,32 +6,49 @@ fn main() {
 }
 
 fn disemvowel(text_for_verification: &str) -> String {
-    // let mut disemvowel_storage = vec![];
-    let illegal_char_list = vec!['a','e','i','o','u','y'];
-    let text_len: usize = text_for_verification.chars().count();
-    let mut chars_in_text_counter: usize = 1;
 
-    'characters_up: while chars_in_text_counter != text_len + 1 {
-        let actual_char = text_for_verification.chars().take(chars_in_text_counter).last().unwrap(); //assigning characters from verified text
-        println!("The letter number {} is: {} ", chars_in_text_counter, actual_char); // only for debuging
-        let mut illegal_char_loop_counter: usize = 0;
-        let mut illegal_char_found: usize = 0;
+    let illegal_char_list = &["a","e","L","O"];
+    let mut char_up_loop_counter: usize = 0;
 
-        'find_illegal: while illegal_char_loop_counter != illegal_char_list.len(){
-            if actual_char == illegal_char_list[illegal_char_loop_counter]{
-                break 'find_illegal;
-            }
-                else{
-                    illegal_char_loop_counter += 1
-                }
+    while char_up_loop_counter != illegal_char_list.len() {
+        println!("przed {}",text_for_verification);
+        let text_for_verification = text_for_verification.replace(illegal_char_list[char_up_loop_counter], "XX");
+        char_up_loop_counter +=1;
+        println!("count{}",char_up_loop_counter);
+        println!("i po {}",text_for_verification);
+        
+            
+    }
+
+
+    println!("{}",text_for_verification);
+    // // let mut disemvowel_storage = vec![];
+    // let illegal_char_list = vec!['a','e','i','o','u','y'];
+    // let text_len: usize = text_for_verification.chars().count();
+    // let mut chars_in_text_counter: usize = 1;
+
+    // 'characters_up: while chars_in_text_counter != text_len + 1 {
+    //     let actual_char = text_for_verification.chars().take(chars_in_text_counter).last().unwrap(); //assigning characters from verified text
+    //     println!("The letter number {} is: {} ", chars_in_text_counter, actual_char); // only for debuging
+    //     let mut illegal_char_loop_counter: usize = 0;
+    //     let mut illegal_char_found: usize = 0;
+
+    //     'find_illegal: while illegal_char_loop_counter != illegal_char_list.len(){
+    //         if actual_char == illegal_char_list[illegal_char_loop_counter]{
+
+    //             break 'find_illegal;
+    //         }
+    //             else{
+    //                 illegal_char_loop_counter += 1
+    //             }
             
 
 
-        }
+    //     }
 
 
-        chars_in_text_counter += 1 
-    }
+    //     chars_in_text_counter += 1 
+    // }
 
 
     String::from("Returned String")
